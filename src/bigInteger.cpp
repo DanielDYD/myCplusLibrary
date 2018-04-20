@@ -83,13 +83,13 @@ BigInt& BigInt::operator +=(const BigInt &rht){
 }
 
 std::ostream& BigInt::output(ostream &out) const{
-    out << ctt.back() << ostream::left;
+    out << ctt.back();
     for(int i = ctt.size() - 2; i >= 0; --i){
         out.width(BigInt::WIDTH);
         out.fill('0');
         out << ctt[i];
     }
-    return out << ostream::right;
+    return out;
 }
 
 BigInt operator -(const BigInt &lft, const BigInt &rht){
@@ -138,7 +138,7 @@ BigInt& BigInt::operator -=(const BigInt &rht){
 BigInt operator *(const BigInt &lft, const BigInt &rht){
     BigInt ans;
     BigInt::bint tmp;
-    ans.ctt.resize(lft.ctt.size() + rht.ctt.size() - 1, 0);
+    ans.ctt.resize(lft.ctt.size() + rht.ctt.size(), 0);
     for(unsigned int i = 0; i < rht.ctt.size(); ++i)
         for(unsigned int j = 0; j < lft.ctt.size(); ++j){
             tmp = ans.ctt[i + j] + rht.ctt[i] * lft.ctt[j];
@@ -153,7 +153,7 @@ BigInt operator *(const BigInt &lft, const BigInt &rht){
 }
 
 BigInt& BigInt::operator *=(const BigInt &rht){
-    return *this = *this + rht;
+    return *this = *this * rht;
 }
 
 BigInt operator /(const BigInt &lft, const BigInt &rht){

@@ -11,10 +11,20 @@
 using namespace std;
 
 int main() {
-    BigInt y("78934"), x("7236823");
-    cout << x << 'x' << y << "=" << x * y << endl
-            << x << '/' << y << "=" << x / y << endl
-            << x << '+' << y << "=" << x + y << endl
-            << x << '-' << y << "=" << x - y << endl;
+    BigInt y("7893497575"), x("7236897878"), tmp;
+    for(int i = 0; i < 10; ++i){
+        cout << x << '>' << y << "=" << (x > y) << endl;
+        cout << x << ">=" << y << "=" << (x >= y) << endl;
+        cout << x << '<' << y << "=" << (x < y) << endl;
+        cout << x << "<=" << y << "=" << (x <= y) << endl;
+        cout << x << "==" << y << "=" << (x == y) << endl;
+        cout << x << "!=" << y << "=" << (x != y) << endl;
+//        tmp = x; tmp %= y;
+//        cout << x << '~' << y << "=" << tmp << endl;
+        x += (int)1e8;
+    }
+//           cout << x << 'x' << y << "=" << x * y << endl;
+//            << x << '+' << y << "=" << x + y << endl
+//            << x << '-' << y << "=" << x - y << endl;
 	return 0;
 }
