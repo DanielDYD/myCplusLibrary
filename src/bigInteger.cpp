@@ -7,6 +7,11 @@
 #include "bigInteger.h"
 #include <cstdlib>
 #include <sstream>
+#include <iostream>
+
+using std::ostream;
+using std::istream;
+using std::string;
 
 const BigInt::bint BigInt::BASE;
 const int BigInt::WIDTH;
@@ -82,7 +87,7 @@ BigInt& BigInt::operator +=(const BigInt &rht){
     return ans;
 }
 
-std::ostream& BigInt::output(ostream &out) const{
+ostream& BigInt::output(ostream &out) const{
     out << ctt.back();
     for(int i = ctt.size() - 2; i >= 0; --i){
         out.width(BigInt::WIDTH);
@@ -183,12 +188,12 @@ BigInt& BigInt::operator %=(const BigInt &rht){
     return *this = *this - *this / rht * rht;
 }
 
-std::ostream& operator <<(std::ostream& out, const BigInt &x){
+ostream& operator <<(ostream& out, const BigInt &x){
     return x.output(out);
 }
 
-std::istream& operator >>(std::istream &in, BigInt &x){
-    std::string s;
+istream& operator >>(istream &in, BigInt &x){
+    string s;
     if (!(in >> s)){
         std::cerr << "bad data in stream\n";
         exit(EXIT_FAILURE);
