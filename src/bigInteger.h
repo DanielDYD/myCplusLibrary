@@ -8,12 +8,7 @@
 #ifndef BIGINTEGER_H_
 #define BIGINTEGER_H_
 #include <vector>
-#include <iostream>
-
-using std::vector;
-using std::ostream;
-using std::istream;
-using std::string;
+#include <string>
 
 class BigInt{
 private:
@@ -28,20 +23,20 @@ private:
     */
 
     // low digit in ctt[0]
-    vector<bint> ctt; // save the content
+    std::vector<bint> ctt; // save the content
 
 public:
     BigInt(){}
     BigInt(const long long &num){
         *this = num;
     }
-    BigInt(const string &);
-    BigInt& operator =(const string &);
+    BigInt(const std::string &);
+    BigInt& operator =(const std::string &);
     BigInt& operator =(const long long &);
     friend bool operator >(const BigInt &, const BigInt &);
     friend BigInt operator +(const BigInt &, const BigInt &);
     BigInt& operator +=(const BigInt &);
-    ostream& output(ostream&) const;
+    std::ostream& output(std::ostream&) const;
     friend BigInt operator -(const BigInt &, const BigInt &);
     BigInt& operator -=(const BigInt &);
     friend BigInt operator *(const BigInt &, const BigInt &);
