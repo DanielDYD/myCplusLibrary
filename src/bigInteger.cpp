@@ -165,14 +165,19 @@ BigInt& BigInt::operator *=(const BigInt &rht){
 }
 
 BigInt operator /(const BigInt &lft, const BigInt &rht){
-    BigInt ans, tmp(0);
+    BigInt ans, tmp(0), tmp2;
+    BigInt::bint tmp1;
     ans.ctt.resize(lft.ctt.size(), 0);
     for(int i = lft.ctt.size() - 1; i >= 0; --i){
         tmp *= BigInt::BASE;
         tmp.ctt[0] = lft.ctt[i];
-        while(tmp >= rht){
-            tmp -= rht;
-            ++ans.ctt[i];
+
+        for(tmp1 = BigInt::BASE / 10; tmp1 > 0; tmp1 /= 10){
+            tmp2 = rht * tmp1;
+            while(tmp >= tmp2){
+                tmp -= tmp2;
+                ans.ctt[i] += tmp1;
+            }
         }
     }
     ans.clean();
@@ -203,6 +208,15 @@ ullong BigInt::toUllong(){
         tmp *= (ullong)BASE;
     }
     return ans;
+}
+
+// count the number of digit
+unsigned int BigInt::digitCnt(){
+    std::stringstream ss;
+    string str;
+    ss << ctt.back();
+    ss >> str;
+    return (ctt.size() - 1) * WIDTH + str.size();
 }
 
 BigInt pow(const BigInt& x, unsigned long m){

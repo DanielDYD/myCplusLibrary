@@ -10,9 +10,12 @@
 #include "bigInteger.h"
 using namespace std;
 
-int main() {/*
-    BigInt y("789349757"), x("7236897878"), tmp = x;
-    for(int i = 0; i < 3; ++i){
+int main() {
+    BigInt y("127759"), x("94885949696427"), tmp = x;
+    cout << x /y << endl;
+
+
+    /*for(int i = 0; i < 3; ++i){
         cout << x << '>' << y << "=" << (x > y) << endl;
         cout << x << ">=" << y << "=" << (x >= y) << endl;
         cout << x << '<' << y << "=" << (x < y) << endl;
@@ -38,8 +41,8 @@ int main() {/*
         x += (int)1e8;
         tmp = x;
     }*/
-    BigInt z("34");
-    cout << pow(z, 10).toUllong() << endl;
+//    BigInt z("34");
+//    cout << pow(z, 10).toUllong() << endl;
 //           cout << x << 'x' << y << "=" << x * y << endl;
 //            << x << '+' << y << "=" << x + y << endl
 //            << x << '-' << y << "=" << x - y << endl;
