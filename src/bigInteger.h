@@ -45,6 +45,7 @@ public:
     BigInt& operator /=(const BigInt &);
     friend BigInt operator %(const BigInt &, const BigInt &);
     BigInt& operator %=(const BigInt &);
+    unsigned long long toUllong();
 private:
     void clean(){
         for(int i = ctt.size() - 1; i > 0; --i)

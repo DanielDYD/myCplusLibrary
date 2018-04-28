@@ -8,6 +8,7 @@
 #include <cstdlib>
 #include <sstream>
 #include <iostream>
+#include <limits>
 
 using std::ostream;
 using std::istream;
@@ -15,6 +16,8 @@ using std::string;
 
 const BigInt::bint BigInt::BASE;
 const int BigInt::WIDTH;
+
+typedef unsigned long long ullong;
 
 BigInt::BigInt(const string &str){
     *this = str;
@@ -34,9 +37,9 @@ BigInt& BigInt::operator =(const string &str){
     return *this;
 }
 
-BigInt& BigInt::operator =(const unsigned long long &num){
+BigInt& BigInt::operator =(const ullong &num){
     ctt.clear();
-    unsigned long long n = num;
+    ullong n = num;
     do{
         ctt.push_back(n % BASE);
         n /= BASE;
@@ -186,6 +189,20 @@ BigInt operator %(const BigInt &lft, const BigInt &rht){
 
 BigInt& BigInt::operator %=(const BigInt &rht){
     return *this = *this - *this / rht * rht;
+}
+
+ullong BigInt::toUllong(){
+    BigInt limit = std::numeric_limits<ullong>::max();
+    if(*this > limit){
+        std::cerr << "the integer is too large\n";
+        exit(EXIT_FAILURE);
+    }
+    ullong ans = 0, tmp = 1;
+    for(int i = 0; i < ctt.size(); ++i){
+        ans += ctt[i] * tmp;
+        tmp *= (ullong)BASE;
+    }
+    return ans;
 }
 
 ostream& operator <<(ostream& out, const BigInt &x){
