@@ -27,12 +27,12 @@ private:
 
 public:
     BigInt(){}
-    BigInt(const long long &num){
+    BigInt(const unsigned long long &num){
         *this = num;
     }
     BigInt(const std::string &);
     BigInt& operator =(const std::string &);
-    BigInt& operator =(const long long &);
+    BigInt& operator =(const unsigned long long &);
     friend bool operator >(const BigInt &, const BigInt &);
     friend BigInt operator +(const BigInt &, const BigInt &);
     BigInt& operator +=(const BigInt &);
