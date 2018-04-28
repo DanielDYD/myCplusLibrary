@@ -53,7 +53,8 @@ private:
             else return;
     }
 };
-
+// x^m
+BigInt pow(const BigInt& x, unsigned long m);
 std::ostream& operator <<(std::ostream &, const BigInt &);
 std::istream& operator >>(std::istream &, BigInt &);
 bool operator <(const BigInt &, const BigInt &);

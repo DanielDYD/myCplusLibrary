@@ -198,9 +198,20 @@ ullong BigInt::toUllong(){
         exit(EXIT_FAILURE);
     }
     ullong ans = 0, tmp = 1;
-    for(int i = 0; i < ctt.size(); ++i){
+    for(unsigned int i = 0; i < ctt.size(); ++i){
         ans += ctt[i] * tmp;
         tmp *= (ullong)BASE;
+    }
+    return ans;
+}
+
+BigInt pow(const BigInt& x, unsigned long m){
+    BigInt ans(1), tmp = x;
+    while(m != 0){
+        if ((m & 1) != 0)
+            ans *= tmp;
+        m >>= 1;
+        tmp *= tmp;
     }
     return ans;
 }
