@@ -34,9 +34,9 @@ BigInt& BigInt::operator =(const string &str){
     return *this;
 }
 
-BigInt& BigInt::operator =(const long long &num){
+BigInt& BigInt::operator =(const unsigned long long &num){
     ctt.clear();
-    long long n = num;
+    unsigned long long n = num;
     do{
         ctt.push_back(n % BASE);
         n /= BASE;
