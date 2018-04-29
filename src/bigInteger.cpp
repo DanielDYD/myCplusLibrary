@@ -1,9 +1,12 @@
-/*
- * bigInteger.cpp
- *
- *  Created on: 2018Äê4ÔÂ19ÈÕ
- *      Author: dyd
- */
+//============================================================================
+// Name        : bigInteger.cpp
+// Author      : Duan Yunde
+// Version     :
+// Copyright (C) 2018 ChongQing, Duan Yunde.
+//        All rights reserved
+// Description : , Ansi-style
+//============================================================================
+
 #include "bigInteger.h"
 #include <cstdlib>
 #include <sstream>

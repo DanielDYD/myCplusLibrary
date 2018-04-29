@@ -1,9 +1,10 @@
 //============================================================================
 // Name        : myCplusLibrary.cpp
-// Author      : dyd
+// Author      : Duan Yunde
 // Version     :
-// Copyright   : Your copyright notice
-// Description : Hello World in C++, Ansi-style
+// Copyright (C) 2018 ChongQing, Duan Yunde.
+//        All rights reserved
+// Description : , Ansi-style
 //============================================================================
 
 #include <iostream>

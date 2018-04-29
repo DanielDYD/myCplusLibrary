@@ -1,9 +1,12 @@
-/*
- * bigInteger.h
- *
- *  Created on: 2018Äê4ÔÂ19ÈÕ
- *      Author: dyd
- */
+//============================================================================
+// Name        : bigInteger.h
+// Author      : Duan Yunde
+// Version     :
+// Copyright (C) 2018 ChongQing, Duan Yunde.
+//        All rights reserved
+// Description : , Ansi-style
+//============================================================================
+
 
 #ifndef BIGINTEGER_H_
 #define BIGINTEGER_H_
