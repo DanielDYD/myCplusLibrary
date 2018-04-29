@@ -1,9 +1,12 @@
-/*
- * bigInteger.h
- *
- *  Created on: 2018Äê4ÔÂ19ÈÕ
- *      Author: dyd
- */
+//============================================================================
+// Name        : bigInteger.h
+// Author      : Duan Yunde
+// Version     :
+// Copyright (C) 2018 ChongQing, Duan Yunde.
+//        All rights reserved
+// Description : , Ansi-style
+//============================================================================
+
 
 #ifndef BIGINTEGER_H_
 #define BIGINTEGER_H_
@@ -46,6 +49,8 @@ public:
     friend BigInt operator %(const BigInt &, const BigInt &);
     BigInt& operator %=(const BigInt &);
     unsigned long long toUllong();
+    // count the number of digit
+    unsigned int digitCnt();
 private:
     void clean(){
         for(int i = ctt.size() - 1; i > 0; --i)
