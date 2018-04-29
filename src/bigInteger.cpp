@@ -105,7 +105,7 @@ ostream& BigInt::output(ostream &out) const{
 
 BigInt operator -(const BigInt &lft, const BigInt &rht){
     if (lft < rht){
-        std::cerr << "left value is smaller than right\n";
+        std::cerr << "\nleft value is smaller than right\n";
         exit(EXIT_FAILURE);
     }
     BigInt ans;
@@ -127,7 +127,7 @@ BigInt operator -(const BigInt &lft, const BigInt &rht){
 BigInt& BigInt::operator -=(const BigInt &rht){
     BigInt &lft = *this, &ans = *this;
     if (lft < rht){
-            std::cerr << "left value is smaller than right\n";
+            std::cerr << "\nleft value is smaller than right\n";
             exit(EXIT_FAILURE);
         }
         //BigInt ans;
@@ -202,7 +202,7 @@ BigInt& BigInt::operator %=(const BigInt &rht){
 ullong BigInt::toUllong(){
     BigInt limit = std::numeric_limits<ullong>::max();
     if(*this > limit){
-        std::cerr << "the integer is too large\n";
+        std::cerr << "\nthe integer is too large\n";
         exit(EXIT_FAILURE);
     }
     ullong ans = 0, tmp = 1;
@@ -240,7 +240,7 @@ ostream& operator <<(ostream& out, const BigInt &x){
 istream& operator >>(istream &in, BigInt &x){
     string s;
     if (!(in >> s)){
-        std::cerr << "bad data in stream\n";
+        std::cerr << "\nbad data in stream\n";
         exit(EXIT_FAILURE);
     }
     x = s;
