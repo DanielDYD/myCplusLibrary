@@ -33,9 +33,12 @@ public:
     BigInt(const unsigned long long &num){
         *this = num;
     }
+    // string[0] is high decimal digit
     BigInt(const std::string &);
     BigInt& operator =(const std::string &);
     BigInt& operator =(const unsigned long long &);
+    // return low n(17) decimal digit
+    unsigned long long toUllong(int n = 17);
     friend bool operator >(const BigInt &, const BigInt &);
     friend BigInt operator +(const BigInt &, const BigInt &);
     BigInt& operator +=(const BigInt &);

@@ -11,6 +11,7 @@
 #include <cstdlib>
 #include <sstream>
 #include <iostream>
+#include<cmath>
 #include <limits>
 
 using std::ostream;
@@ -24,6 +25,21 @@ typedef unsigned long long ullong;
 
 BigInt::BigInt(const string &str){
     *this = str;
+}
+
+// return low n(17) decimal digit
+unsigned long long BigInt::toUllong(int n){
+    int id = n / WIDTH, i = 0;
+    unsigned long long ans = 0;
+
+    for(; i < id; ++i){
+        ans += ctt[i] *
+      static_cast<unsigned long long>(pow(10, i * WIDTH));
+    }
+    n %= WIDTH;
+    ans += ctt[i] % static_cast<bint>(pow(10, n)) *
+            static_cast<unsigned long long>(pow(10, i * WIDTH));
+    return ans;
 }
 
 BigInt& BigInt::operator =(const string &str){
