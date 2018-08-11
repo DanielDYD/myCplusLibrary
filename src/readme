@@ -1,0 +1,20 @@
+tag v1*
+big integer
+
+v2* prime
+
+v3 add
+// return the location pointing first non-delimiter char, otherwise return 0
+inline int stringRemoveDelimiter(char delimiter, const char *string);
+
+/*binary to decimal, bin[0] is low bit*/
+BigInt bin2dec(const char *bin);
+
+// low bit in right
+std::string dec2bin(const std::string &dec);
+
+/*convert the string*/
+std::string cvtStr(const std::string &str);
+
+// return low n(17) decimal digit
+    unsigned long long toUllong(int n = 17);
