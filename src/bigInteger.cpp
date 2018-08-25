@@ -122,7 +122,7 @@ ostream& BigInt::output(ostream &out) const{
 
 BigInt operator -(const BigInt &lft, const BigInt &rht){
     if (lft < rht){
-        std::cerr << "\nleft value is smaller than right\n";
+        ERROR("\nleft value is smaller than right\n");
         exit(EXIT_FAILURE);
     }
     BigInt ans;
