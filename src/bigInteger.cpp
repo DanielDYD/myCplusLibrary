@@ -8,6 +8,7 @@
 //============================================================================
 
 #include "bigInteger.h"
+#include "exception.h"
 #include <cstdlib>
 #include <sstream>
 #include <iostream>
@@ -218,7 +219,7 @@ BigInt& BigInt::operator %=(const BigInt &rht){
 ullong BigInt::toUllong(){
     BigInt limit = std::numeric_limits<ullong>::max();
     if(*this > limit){
-        std::cerr << "\nthe integer is too large\n";
+        ERROR("\nthe integer is too large\n");
         exit(EXIT_FAILURE);
     }
     ullong ans = 0, tmp = 1;
