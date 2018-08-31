@@ -16,6 +16,23 @@ namespace Nlib{
     typedef unsigned long long ullong;
 }
 
+// compute s hamming weight in low 64 bits, that is popcount
+inline int weight(const Nlib::ullong &s)
+{
+    using Nlib::ullong;
+    ullong x = s;
+    static const ullong m1 = 0x5555555555555555; //binary: 0101...
+    static const ullong m2 = 0x3333333333333333; //binary: 00110011..
+    static const ullong m4 = 0x0f0f0f0f0f0f0f0f; //binary:  4 zeros,  4 ones ...
+    static const ullong h01 = 0x101010101010101; //the sum of 256 to the power of 0,1,2,3...
+    x -= (x >> 1) & m1;             //put count of each 2 bits into those 2 bits
+    x = (x & m2) + ((x >> 2) & m2); //put count of each 4 bits into those 4 bits
+    x = (x + (x >> 4)) & m4;        //put count of each 8 bits into those 8 bits
+    x = (x * h01) >> 56;  //returns left 8 bits of x + (x<<8) + (x<<16) + (x<<24) +
+    // (x<<32) + (x<<40) + (x<<48) + (x<<56)
+    return static_cast<int>(x);
+}
+
 /*judge whether v in the range of 2~rng is prime*/
 bool prime(Nlib::ullong v, Nlib::ullong rng);
 /*judge whether v is prime*/
