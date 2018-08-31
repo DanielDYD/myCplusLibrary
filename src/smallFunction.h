@@ -12,10 +12,14 @@
 #include<cstring>
 #include"bigInteger.h"
 
+namespace Nlib{
+    typedef unsigned long long ullong;
+}
+
 /*judge whether v in the range of 2~rng is prime*/
-bool prime(unsigned long long v, unsigned long long rng);
+bool prime(Nlib::ullong v, Nlib::ullong rng);
 /*judge whether v is prime*/
-bool prime(unsigned long long v);
+bool prime(Nlib::ullong v);
 
 // output 2D array mtx
 void outMtx(const std::vector<std::vector<int>> &mtx, std::ostream &out, int wdt = 8);

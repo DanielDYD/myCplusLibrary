@@ -14,10 +14,10 @@
 #include <iostream>
 #include<iomanip>
 
-typedef unsigned long long ullong;
 typedef std::vector<std::vector<int>> matrix;
 
 using std::string;
+using Nlib::ullong;
 
 // output 2D array mtx
 void outMtx(const matrix &mtx, std::ostream &out, int wdt)
