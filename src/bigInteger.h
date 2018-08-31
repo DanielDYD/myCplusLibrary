@@ -60,6 +60,8 @@ private:
             if (ctt[i] == 0) ctt.pop_back();
             else return;
     }
+    // if there are only digits(0 is not fist digit in left), return true
+    bool isNum(const std::string &s);
 };
 // x^m
 BigInt pow(const BigInt& x, unsigned long m);

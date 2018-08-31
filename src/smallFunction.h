@@ -68,7 +68,7 @@ inline int stringRemoveDelimiter(char delimiter, const char *string) {
 /*binary to decimal, bin[0] is low bit*/
 BigInt bin2dec(const char *bin);
 
-// low bit in right
+// low bit in right, "13" return "1101"
 std::string dec2bin(const std::string &dec);
 
 /*convert the string*/

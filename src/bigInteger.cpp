@@ -24,6 +24,15 @@ const int BigInt::WIDTH;
 
 typedef unsigned long long ullong;
 
+// if there are only digits(0 is not fist digit in left), return true
+bool BigInt::isNum(const std::string &s){
+    for(size_t i = 0; i < s.size(); ++i)
+        if(!isdigit(s[i])) return false;
+    if(s.size() > 1)
+        if(*s.rbegin() == '0') return false;
+    return true;
+}
+
 BigInt::BigInt(const string &str){
     *this = str;
 }
@@ -44,6 +53,10 @@ unsigned long long BigInt::toUllong(int n){
 }
 
 BigInt& BigInt::operator =(const string &str){
+    if(!isNum(str)){
+        ERROR("\nthe string is not a number\n");
+        exit(EXIT_FAILURE);
+    }
     ctt.clear();
     // chip in the big integer
     bint chip, len = (str.length() - 1) / WIDTH + 1;
