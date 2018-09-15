@@ -14,6 +14,7 @@
 
 namespace Nlib{
     typedef unsigned long long ullong;
+    typedef long long llong;
 }
 
 // compute s hamming weight in low 64 bits, that is popcount
@@ -34,7 +35,7 @@ inline int weight(const Nlib::ullong &s)
 }
 
 /*judge whether v in the range of 2~rng is prime*/
-bool prime(Nlib::ullong v, Nlib::ullong rng);
+bool prime(size_t v, size_t rng);
 /*judge whether v is prime*/
 bool prime(Nlib::ullong v);
 

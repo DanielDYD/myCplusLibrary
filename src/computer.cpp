@@ -1,13 +1,10 @@
 #include <iostream> 
-#include <string> 
-#ifdef _MSC_VER
+#include <string>
 #include <Windows.h>
-#elif
-//
-#endif // _MSC_VER
+#include "simplify.h"
 
 // windows
-#ifdef _MSC_VER
+#ifdef VCPLUS
 
 #pragma warning(disable: 4996) // avoid GetVersionEx to be warned
 

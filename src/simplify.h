@@ -8,6 +8,10 @@
 #ifndef SIMPLIFY_H_
 #define SIMPLIFY_H_
 
+#ifdef _MSC_VER
+#define VCPLUS
+#endif
+
 //#define sz(x) ((int)((x).size()))
 //#define out(x) printf(#x" %d\n", x)
 //#define all(x) (x).begin(), (x).end()

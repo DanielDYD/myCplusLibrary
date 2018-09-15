@@ -14,6 +14,7 @@
 #include <iostream>
 #include<cmath>
 #include <limits>
+#include <algorithm>
 
 using std::ostream;
 using std::istream;
@@ -70,7 +71,7 @@ BigInt& BigInt::operator =(const string &str){
     return *this;
 }
 
-BigInt& BigInt::operator =(const ullong &num){
+BigInt& BigInt::operator =(const unsigned long long &num){
     ctt.clear();
     ullong n = num;
     do{

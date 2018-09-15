@@ -56,7 +56,7 @@ public:
     unsigned int digitCnt();
 private:
     void clean(){
-        for(int i = ctt.size() - 1; i > 0; --i)
+        for(int i = (int)ctt.size() - 1; i > 0; --i)
             if (ctt[i] == 0) ctt.pop_back();
             else return;
     }

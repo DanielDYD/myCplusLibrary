@@ -18,6 +18,7 @@ typedef std::vector<std::vector<int>> matrix;
 
 using std::string;
 using Nlib::ullong;
+using Nlib::llong;
 
 // output 2D array mtx
 void outMtx(const matrix &mtx, std::ostream &out, int wdt)
@@ -57,15 +58,15 @@ void inMtx(matrix &mtx, std::istream &in)
 }
 
 /*judge whether v in the range of 2~rng is prime*/
-bool prime(ullong v, ullong rng){
-    static ullong rg = 0;
-    static std::vector<char> flg;
+bool prime(size_t v, size_t rng){
+    static size_t rg = 0;
+    static std::vector<bool> flg;
     if (rg < rng){
         rg = rng;
         flg.resize(rng, 1);
-        for (ullong i = 2; i <= (ullong)sqrt(rng); ++i) {
+        for (size_t i = 2; i <= (size_t)sqrt(rng); ++i) {
             if (flg[i])
-                for (ullong j = i; j * i <= rng; ++j)
+                for (size_t j = i; j * i <= rng; ++j)
                     flg[i * j] = 0;
         }
     }
@@ -95,7 +96,7 @@ string dec2bin(const string &dec){
     BigInt decBg(dec);
     string ans;
     for(; decBg != 0;){
-        ans.push_back((decBg % 2).toUllong(1) + '0');
+        ans.push_back((int)(decBg % 2).toUllong(1) + '0');
         decBg /= 2;
     }
 
@@ -105,7 +106,7 @@ string dec2bin(const string &dec){
 /*convert the string*/
 string cvtStr(const string &str){
     string ans = str;
-    long n = str.size() - 1;
+    size_t n = str.size() - 1;
     for(size_t i = 0; i < str.size(); ++i){
         ans[n--] = str[i];
     }
